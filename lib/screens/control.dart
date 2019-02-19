@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './auth/login.dart';
 import './home.dart';
 
+
 class Control extends StatefulWidget{
   
   //checking logged in users

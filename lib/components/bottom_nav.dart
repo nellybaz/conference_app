@@ -1,49 +1,13 @@
 import 'package:flutter/material.dart';
-import './home.dart';
-import './participants.dart';
-import './speakers.dart';
 
-
-class Bookmarks extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() {
-    return _BookmarksState();
-  }
-}
-
-class _BookmarksState extends State<Bookmarks> {
-  int screenIndex = 1;
-  changeScreen(x){
-          switch (x) {
-          case 0:
-              
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));
-            break;
-
-            case 1:
-              
-
-            break;
-
-            case 2:
-              
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Speakers()));
-            break;
-
-            case 3:
-              
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Participants()));
-            break;
-          default:
-        }
-    }
-    
+class BottomNav extends StatelessWidget{
+  final int screenIndex;
+  final Function changeScreen;
+  BottomNav({this.screenIndex, this.changeScreen});
+  
    @override
    Widget build(BuildContext context) {
-   return Scaffold(
-     bottomNavigationBar: Hero(
-        tag: "app_bottom_nav",
-        child: BottomNavigationBar(
+   return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
@@ -67,16 +31,11 @@ class _BookmarksState extends State<Bookmarks> {
                    
         ],
         
-        currentIndex: 1,
+        currentIndex: screenIndex,
         fixedColor: Theme.of(context).primaryColor,
         onTap: (index){
           changeScreen(index);
         },
-      ),
-      ),
-     body: Center(
-     child: Text("bookmarks screen"),
-   ),
-   );
+      );
 }
 }

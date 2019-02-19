@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/drawer.dart';
-import './session_datails.dart';
-
-
+import './session_details.dart';
 
 
 class Sessions extends StatefulWidget{
@@ -37,13 +35,14 @@ class _SessionsState extends State<Sessions>{
           
           margin: EdgeInsets.only(bottom:10.0),
           // height: 140.0,
-          child: InkWell(
-            onTap: (){
+          child: FlatButton(
+            
+            onPressed: (){
               print(i);
-              Navigator.push(context, MaterialPageRoute(builder: (contexr)=> SessionDetails()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> SessionDetails(title: "The Future of Blockchain",)));
             },
             child: Padding(
-            padding: EdgeInsets.only(left:10.0, right: 10.0, top: 10.0, bottom: 10.0),
+            padding: EdgeInsets.only(left:0.0, right: 0.0, top: 10.0, bottom: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -130,7 +129,9 @@ class _SessionsState extends State<Sessions>{
    Widget build(BuildContext context) {
    return Scaffold(
      key: _scaffoldKey,
-     drawer: MyDrawer(),
+     drawer: Drawer(
+       child: MyDrawer(),
+     ),
      body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(

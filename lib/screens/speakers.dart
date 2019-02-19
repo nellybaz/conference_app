@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import '../components/bottom_nav.dart';
+import './participants.dart';
 
-import './speakers.dart';
 import './bookmarks.dart';
 import './home.dart';
 
 
-class Participants extends StatefulWidget{
+class Speakers extends StatefulWidget{
    @override
    State<StatefulWidget> createState() {
-return _ParticipantsState();
+return _SpeakersState();
 }
 }
-class _ParticipantsState extends State<Participants>{
+class _SpeakersState extends State<Speakers>{
   
   changeScreen(x){
           switch (x) {
@@ -28,17 +28,17 @@ class _ParticipantsState extends State<Participants>{
 
             case 2:
               
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Speakers()));
+            // Navigator.push(context, MaterialPageRoute(builder: (context)=> Participants()));
             break;
 
             case 3:
               
-            // Navigator.push(context, MaterialPageRoute(builder: (context)=> Participants()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Participants()));
             break;
           default:
         }
     }
-    int screenIndex = 3;
+    int screenIndex = 2;
   
    @override
    Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _ParticipantsState extends State<Participants>{
         child: BottomNav(screenIndex: screenIndex, changeScreen: changeScreen,),
      ),
      appBar: AppBar(
-      title: Text("Participants", style: TextStyle(
+      title: Text("Speakers", style: TextStyle(
        fontSize: 16.0)),
       leading: IconButton(
          icon: Icon(Icons.arrow_back_ios),
@@ -59,7 +59,7 @@ class _ParticipantsState extends State<Participants>{
        ),
      ),
      body: Center(
-     child: Text('Participants page' 
+     child: Text('Speakers page' 
      ),),
  
    );

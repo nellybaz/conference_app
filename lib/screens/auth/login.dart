@@ -114,7 +114,7 @@ class _LoginState extends State<Login> {
 
                       print('loggin pressed');
 
-                      Navigator.push(context, MaterialPageRoute(builder:(context)=> Home() ));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> Home() ));
                     },
                     child: Text("Log in", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12.0)),
                   ),

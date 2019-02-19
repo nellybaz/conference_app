@@ -13,7 +13,9 @@ class VugaApp extends StatelessWidget{
       theme: ThemeData(
         primaryColor: Color(0xff004281),
         primaryColorLight: Color(0xffF6F6F6), 
-        cursorColor: Color(0xff004281)
+        cursorColor: Color(0xff004281),
+        accentColor: Color(0xfff26e24),
+        fontFamily: 'Roboto',
       ),
     );
   }

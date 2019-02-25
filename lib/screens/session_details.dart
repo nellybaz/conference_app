@@ -71,19 +71,19 @@ class _SessionDetailsState extends State<SessionDetails>{
               },
                           child: Row(
                 children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Container(
+                  
+                     Container(
                       height: 70.0,
+                      width: 70.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60.0),
+                        borderRadius: BorderRadius.circular(70.0),
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage('assets/images/sp.png')
                         )
                       ),
                     ),
-                  ),
+                  
 
                   Expanded(
                     flex: 3,

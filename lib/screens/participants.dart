@@ -4,6 +4,8 @@ import '../components/bottom_nav.dart';
 import './speakers.dart';
 import './bookmarks.dart';
 import './home.dart';
+import '../components/participants_listView.dart';
+
 
 
 class Participants extends StatefulWidget{
@@ -39,7 +41,9 @@ class _ParticipantsState extends State<Participants>{
         }
     }
     int screenIndex = 3;
-  
+
+
+    
    @override
    Widget build(BuildContext context) {
    return Scaffold(
@@ -58,9 +62,12 @@ class _ParticipantsState extends State<Participants>{
 
        ),
      ),
-     body: Center(
-     child: Text('Participants page' 
-     ),),
+     body: Padding(
+       padding: EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+       child: ListView(
+         children: [ParticipantsListView(listItemNumber: 10,)],
+       ),
+     )
  
    );
 }

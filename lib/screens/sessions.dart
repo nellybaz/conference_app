@@ -90,13 +90,13 @@ class _SessionsState extends State<Sessions>{
 
               Padding(padding: EdgeInsets.only(top: 10.0),
               child: Text("The Future of Blockchain", style: TextStyle(
-                fontWeight: FontWeight.bold, color: primaryColor, fontSize: 14.0
+                fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor, fontSize: 14.0
               ),),),
 
 
               Padding(padding: EdgeInsets.only(top: 5.0),
               child: Text("Speakers: ", style: TextStyle(
-                fontWeight: FontWeight.bold,fontSize: 14.0
+                fontWeight: FontWeight.bold,fontSize: 14.0,
               ),),),
 
 

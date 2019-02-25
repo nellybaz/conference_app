@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import '../components/bottom_nav.dart';
 import './participants.dart';
-
+// import './profile.dart';
 import './bookmarks.dart';
 import './home.dart';
+
+import '../components/participants_listView.dart';
 
 
 class Speakers extends StatefulWidget{
@@ -39,6 +41,8 @@ class _SpeakersState extends State<Speakers>{
         }
     }
     int screenIndex = 2;
+
+
   
    @override
    Widget build(BuildContext context) {
@@ -58,9 +62,12 @@ class _SpeakersState extends State<Speakers>{
 
        ),
      ),
-     body: Center(
-     child: Text('Speakers page' 
-     ),),
+     body: Padding(
+       padding: EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+       child: ListView(
+         children: [ParticipantsListView(listItemNumber: 3,)],
+       ),
+     )
  
    );
 }

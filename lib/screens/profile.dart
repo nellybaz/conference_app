@@ -92,7 +92,7 @@ class _ProfileState extends State<Profile>{
              borderRadius: BorderRadius.circular(125.0),
              border: Border.all(width: 2.0, color: Theme.of(context).primaryColor),
              image: DecorationImage(
-               image: AssetImage('assets/images/sp.png'),
+               image: AssetImage('assets/images/sp2.jpg'),
                fit: BoxFit.cover
              )
            ),

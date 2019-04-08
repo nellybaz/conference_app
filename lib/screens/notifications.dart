@@ -4,14 +4,14 @@ import './participants.dart';
 import './speakers.dart';
 
 
-class Bookmarks extends StatefulWidget{
+class AppNotification extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    return _BookmarksState();
+    return _AppNotificationState();
   }
 }
 
-class _BookmarksState extends State<Bookmarks> {
+class _AppNotificationState extends State<AppNotification> {
   int screenIndex = 1;
   changeScreen(x){
           switch (x) {
@@ -76,11 +76,11 @@ class _BookmarksState extends State<Bookmarks> {
       ),
      body:Scaffold(
        appBar: AppBar(
-         title: Text("Bookmarks"),
+         title: Text("Notifications"),
        ),
        body: Material(
          child: Center(
-           child: Text("No Bookmarks Available"),
+           child: Text("No notifications"),
          ),
        ),
      )

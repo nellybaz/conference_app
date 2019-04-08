@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/drawer.dart';
 import './session_details.dart';
-
+import '../globals.dart';
 
 class Sessions extends StatefulWidget{
    
@@ -20,7 +20,7 @@ class _SessionsState extends State<Sessions>{
 
   _populateSessionListList(){
 
-     var primaryColor = Color(0xff004281);
+    
     List<Widget> sessions = [];
 
   
@@ -29,7 +29,7 @@ class _SessionsState extends State<Sessions>{
       sessions.add(
         Container(
           decoration: BoxDecoration(
-            color: Color(0xffDDDEDF),
+            color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(2.0))
           ),
           
@@ -129,41 +129,42 @@ class _SessionsState extends State<Sessions>{
    Widget build(BuildContext context) {
    return Scaffold(
      key: _scaffoldKey,
-     drawer: Drawer(
-       child: MyDrawer(),
-     ),
-     body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            centerTitle: true,
-            leading: IconButton(
-              onPressed: (){
-                _scaffoldKey.currentState.openDrawer();
-              },
-              icon: Icon(Icons.menu),),
-            expandedHeight: 150.0,
-            floating: false,
-            pinned: false,
-            // backgroundColor: Colors.white,
-            flexibleSpace: FlexibleSpaceBar(
-              // title: Text("Sessions", style: TextStyle(
-              //   fontSize: 14.0
-              // ),),
+     drawer: MyDrawer(),
+     body: Material(
+       color: primaryGrey,
+            child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
               centerTitle: true,
-              background: Image.asset('assets/images/jumbo.jpg', fit: BoxFit.cover,)
+              leading: IconButton(
+                onPressed: (){
+                  _scaffoldKey.currentState.openDrawer();
+                },
+                icon: Icon(Icons.menu),),
+              expandedHeight: 150.0,
+              floating: false,
+              pinned: false,
+              // backgroundColor: Colors.white,
+              flexibleSpace: FlexibleSpaceBar(
+                // title: Text("Sessions", style: TextStyle(
+                //   fontSize: 14.0
+                // ),),
+                centerTitle: true,
+                background: Image.asset('assets/images/jumbo.jpg', fit: BoxFit.cover,)
 
+              ),
             ),
-          ),
 
-         SliverPadding(
-           padding: EdgeInsets.all(10.0),
-           sliver:  SliverList(
-            delegate: SliverChildListDelegate(_populateSessionListList()),
-          ),
-         )
+           SliverPadding(
+             padding: EdgeInsets.all(10.0),
+             sliver:  SliverList(
+              delegate: SliverChildListDelegate(_populateSessionListList()),
+            ),
+           )
 
-        ],
-      ),
+          ],
+        ),
+     ),
    );
 }
 }

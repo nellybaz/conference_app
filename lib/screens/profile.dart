@@ -133,12 +133,20 @@ class _ProfileState extends State<Profile>{
             ),
 
             Expanded(
-              flex: 1,
+              flex: 3,
                           child: FlatButton(
                 onPressed: (){
                   _launchURL();
                 },
-                child: Image.asset('assets/images/linkedin.png'),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("LinkedIn"),
+                    ),
+                    Image.asset('assets/images/linkedin.png')
+                  ],
+                ),
               ),
             )
           ],
@@ -166,7 +174,27 @@ class _ProfileState extends State<Profile>{
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder:(context)=> Participants()));
             },
-            child: Text("SEE OTHER PARTICIPANTS", style: TextStyle(
+            child: Text("CONNECT ON TWITTER", style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),),
+          ),
+          decoration: BoxDecoration(
+            border: Border.all(width: 1.0),
+            borderRadius: BorderRadius.circular(3),
+            
+          ),
+        ),
+        ),
+
+         Padding(
+          padding: EdgeInsets.only(top: 0.0, bottom: 20.0),
+          child: Container(
+          width: double.infinity,
+          child: FlatButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder:(context)=> Participants()));
+            },
+            child: Text("CONNECT ON LINKEDIN", style: TextStyle(
               fontWeight: FontWeight.bold,
             ),),
           ),

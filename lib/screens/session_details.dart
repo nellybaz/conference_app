@@ -5,6 +5,8 @@ import './bookmarks.dart';
 import './home.dart';
 import '../components/bottom_nav.dart';
 import './speakers.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SessionDetails extends StatefulWidget{
   final title;
@@ -19,6 +21,16 @@ class SessionDetails extends StatefulWidget{
 
 class _SessionDetailsState extends State<SessionDetails>{
     
+
+         _launchURL() async {
+  var url ='https://twitter.com/intent/tweet?text=Helloworld' ;
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
     changeScreen(x){
           switch (x) {
           case 0:
@@ -255,7 +267,16 @@ class _SessionDetailsState extends State<SessionDetails>{
                     color: Theme.of(context).primaryColor,
 
                     onPressed: (){},
-                    child: Text("ADD TO CALENDER", style: TextStyle(color: Colors.white),),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(FontAwesomeIcons.calendar, color: Colors.white, size: 17,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("ADD TO CALENDER", style: TextStyle(color: Colors.white),),
+                        )
+                      ],
+                    ),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
                   ),
                 ),
@@ -269,7 +290,16 @@ class _SessionDetailsState extends State<SessionDetails>{
                     color: Theme.of(context).accentColor,
 
                     onPressed: (){},
-                    child: Text("BOOKMARK EVENT", style: TextStyle(color: Colors.white),),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(FontAwesomeIcons.solidBookmark, color: Colors.white, size: 17,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("BOOKMART EVENT", style: TextStyle(color: Colors.white),),
+                        )
+                      ],
+                    ),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
                   ),
                 ),
@@ -286,8 +316,19 @@ class _SessionDetailsState extends State<SessionDetails>{
                   child: FlatButton(
                     // color: Theme.of(context).primaryColor,
 
-                    onPressed: (){},
-                    child: Text("SEE ALL SPONSORS", style: TextStyle(color: Colors.black),),
+                    onPressed: (){
+                      _launchURL();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(FontAwesomeIcons.twitter, color: Colors.blue, size: 17,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("TWEET EVENT", style: TextStyle(color: Colors.black),),
+                        )
+                      ],
+                    ),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
                   ),
                 ),

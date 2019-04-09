@@ -199,6 +199,22 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
+
+            SizedBox(
+              width: double.infinity,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> About()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left:6.0),
+                    child: Text("Sponsors"),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
               width: double.infinity,
               child: Align(

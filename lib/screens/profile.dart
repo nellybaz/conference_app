@@ -4,7 +4,7 @@ import './bookmarks.dart';
 import './home.dart';
 import '../components/bottom_nav.dart';
 import './speakers.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Profile extends StatefulWidget{
@@ -20,8 +20,8 @@ return _ProfileState();
 
 class _ProfileState extends State<Profile>{
      
-     _launchURL() async {
-  const url = 'https://www.linkedin.com/in/nbassey/';
+     _launchURL(x) async {
+  var url = x == 1 ? 'https://www.linkedin.com/in/hexakomb/':'https://twitter.com/Hexakomb' ;
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -60,6 +60,8 @@ class _ProfileState extends State<Profile>{
         tag: "app_bottom_nav",
         child: BottomNav(screenIndex: screenIndex, changeScreen: changeScreen,),
      ),
+
+     
      appBar: AppBar(
        title: Text(widget.name, style: TextStyle(
          fontSize: 16.0
@@ -116,10 +118,15 @@ class _ProfileState extends State<Profile>{
                   Text("CE0 @ Ventures LTD"),
                   Padding(
                     padding: EdgeInsets.only(top: 10.0),
-                                    child: Row(
+                                    child: InkWell(
+                                      onTap: (){
+                                        _launchURL(0);
+                                      },
+                                      child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Image.asset('assets/images/twitter.png', height: 16.0, width: 16.0,), 
+                        // Image.asset('assets/images/twitter.png', height: 16.0, width: 16.0,), 
+                         Icon(FontAwesomeIcons.twitter, color: Color(0xff1A6BB7), size: 18,),
                        Padding(
                          padding: EdgeInsets.only(left: 5.0),
                          child: Text("@eliz_noah"),
@@ -127,28 +134,32 @@ class _ProfileState extends State<Profile>{
                        
                       ],
                     ),
+                                    )
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top:8.0),
+                    child: InkWell(
+                      onTap: (){
+
+                        print("tapped");
+                        _launchURL(1);
+                      },
+                                          child: Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right:8.0),
+                          child:  Icon(FontAwesomeIcons.linkedin, color: Color(0xff1A6BB7), size: 18,),
+                          // child:  Image.asset('assets/images/linkedin.png'),
+                        ),
+                       Text("LinkedIn")
+                      ],
+                ),
+                    ),
                   )
                 ],
               ),
             ),
-
-            Expanded(
-              flex: 3,
-                          child: FlatButton(
-                onPressed: (){
-                  _launchURL();
-                },
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("LinkedIn"),
-                    ),
-                    Image.asset('assets/images/linkedin.png')
-                  ],
-                ),
-              ),
-            )
           ],
         ),
 
@@ -172,11 +183,24 @@ class _ProfileState extends State<Profile>{
           width: double.infinity,
           child: FlatButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder:(context)=> Participants()));
+              _launchURL(0);
+              // Navigator.push(context, MaterialPageRoute(builder:(context)=> Participants()));
             },
-            child: Text("CONNECT ON TWITTER", style: TextStyle(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // Icon(
+                   Padding(
+                     padding: const EdgeInsets.only(right:8.0),
+                     child:  Icon(FontAwesomeIcons.twitter, color: Color(0xff1A6BB7),),
+                    //  child: Image.asset('assets/images/twitter.png', height: 24.0, width: 24.0,),
+                   ), 
+                  Text("CONNECT ON TWITTER", style: TextStyle(
               fontWeight: FontWeight.bold,
-            ),),
+            ),)
+              
+              ],
+            )
           ),
           decoration: BoxDecoration(
             border: Border.all(width: 1.0),
@@ -192,11 +216,22 @@ class _ProfileState extends State<Profile>{
           width: double.infinity,
           child: FlatButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder:(context)=> Participants()));
+              _launchURL(1);
+              // Navigator.push(context, MaterialPageRoute(builder:(context)=> Participants()));
             },
-            child: Text("CONNECT ON LINKEDIN", style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right:8.0),
+                  child: Icon(FontAwesomeIcons.linkedin, color: Color(0xff1A6BB7),),
+                  // child: Image.asset('assets/images/linkedin.png', height: 26.0, width: 26.0,),
+                ),
+                Text("CONNECT ON LINKEDIN", style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),),
+              ],
+            ),
           ),
           decoration: BoxDecoration(
             border: Border.all(width: 1.0),

@@ -11,9 +11,9 @@ class About extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Material(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[ 
               Container(
                 height: 120,
@@ -24,12 +24,16 @@ class About extends StatelessWidget {
                   )
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Text("The Lorem Ipsum is simply dummy text of the composition and layout before printing. Lorem Ipsum has been the standard text for printing since the 1500s, when an anonymous printer assembled pieces of text together to"),
+
+              SizedBox(
+                height: 30,
               ),
-               Text("The Lorem Ipsum is simply dummy text of the composition and layout before printing. Lorem Ipsum has been the standard text for printing since the 1500s, when an anonymous printer assembled pieces of text together to")
-            ],
+              Padding( 
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Text("The Transform Africa Summit is the Smart Africa flagship event. Following four successful editions, the fifth summit will take place in kigali, Rwanda, from 14 -17 May 2019. \n\nUnder the theme \"Boosting Africa's Digital Economy\", the Summit is expected to attract 4000 participants, including Heads of State and Governement, First Ladies, UN Broadband Commissioners, Regulators, Public & Private Sector, International Organizations, Industry Leaders, Investors, Entrepeneurs, Young Innovators, Civil Society and Academia. \n\n In addition to the Leaders Summit, TAS 2019 will feature subject specific streams tackling current digital economy topics. Delegates will be able to attend insightful & engaging sessions in the Hubs, Plenaries, Networking Lounges as well as several customized sessions by our partners.", textAlign: TextAlign.justify,),
+              ),
+              //  Text("")
+            ], 
           ),
         ),
       ),

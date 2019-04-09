@@ -23,7 +23,7 @@ class _SessionDetailsState extends State<SessionDetails>{
     
 
          _launchURL() async {
-  var url ='https://twitter.com/intent/tweet?text=Helloworld' ;
+  var url ='https://twitter.com/intent/tweet?hashtags=TAS2019' ;
   if (await canLaunch(url)) {
     await launch(url);
   } else {

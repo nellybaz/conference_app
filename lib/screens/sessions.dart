@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import '../components/drawer.dart';
 import './session_details.dart';
 import '../globals.dart';
+// import './bookmarks.dart';
+// import './speakers.dart';
+// import './participants.dart';
+// import '../components/bottom_nav.dart';
 
 class Sessions extends StatefulWidget {
   @override
@@ -151,7 +155,6 @@ class _SessionsState extends State<Sessions>
     return Scaffold(
       key: _scaffoldKey,
       drawer: MyDrawer(),
-      //  appBar: SLiver,
       body: Material(
           color: primaryGrey,
           child: NestedScrollView(
@@ -193,13 +196,13 @@ class _SessionsState extends State<Sessions>
                               controller: _tabController,
                               tabs: <Widget>[
                                 Tab(
-                                  text: "Day 1",
+                                  text: "May 14",
                                 ),
                                 Tab(
-                                  text: "Day 2",
+                                  text: "May 15",
                                 ),
                                 Tab(
-                                  text: "Day 3",
+                                  text: "May 16",
                                 )
                               ],
                             ),

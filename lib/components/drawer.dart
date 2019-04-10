@@ -46,7 +46,8 @@ class MyDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: FlatButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Sessions()));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> Sessions()));
+                  Navigator.pop(context);
                   },
                   child: Row(
                     children: <Widget>[
@@ -58,7 +59,7 @@ class MyDrawer extends StatelessWidget {
                         flex: 8,
                         child: Padding(
                             padding: EdgeInsets.only(left: 20),
-                            child: Text("Sessions")),
+                            child: Text("Programs")),
                       )
                     ],
                   ),
